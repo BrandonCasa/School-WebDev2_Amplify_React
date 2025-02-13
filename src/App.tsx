@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Button } from "@mui/material";
 import { useAuthenticator } from "@aws-amplify/ui-react";
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
@@ -27,7 +28,7 @@ function App() {
 		<main>
 			<h1>My todos</h1>
 			<h1>{user?.signInDetails?.loginId}'s todos</h1>
-			<button onClick={createTodo}>+ new</button>
+			<Button onClick={createTodo}>+ new</Button>
 			<ul>
 				{todos.map((todo) => (
 					<li onClick={() => deleteTodo(todo.id)} key={todo.id}>
