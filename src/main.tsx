@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
+import { Box } from "@mui/material";
+import SocialPage from "./pages/SocialPage.tsx";
+import BottomNav from "./components/BottomNav.comp.tsx";
 import "./index.css";
 import { Authenticator } from "@aws-amplify/ui-react";
 import { Amplify } from "aws-amplify";
@@ -22,9 +25,13 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 		<Authenticator>
 			<CssBaseline />
 			<BrowserRouter>
-				<Routes>
-					<Route path="/" element={<App />} />
-				</Routes>
+				<Box sx={{ flexGrow: 1, padding: 2, display: "flex", flexDirection: "column", gap: 1 }}>
+					<Routes>
+						<Route path="/" element={<App />} />
+						<Route path="/social" element={<SocialPage />} />
+					</Routes>
+				</Box>
+				<BottomNav />
 			</BrowserRouter>
 		</Authenticator>
 	</React.StrictMode>
