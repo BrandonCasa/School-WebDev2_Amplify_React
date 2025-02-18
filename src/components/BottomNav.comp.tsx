@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import { Box, Button, Paper, Typography, IconButton, ButtonProps, CSSObject, IconButtonProps } from "@mui/material";
 import AppIcon from "@mui/icons-material/Apps";
+import GroupsIcon from "@mui/icons-material/Groups";
 import StyledIconButton from "./StyledIconButton.comp";
+import { useNavigate } from "react-router";
 
 function BottomNav() {
+	let navigate = useNavigate();
+
 	useEffect(() => {}, []);
 
 	return (
@@ -12,10 +16,15 @@ function BottomNav() {
 				<AppIcon />
 			</StyledIconButton>
 			<StyledIconButton sx={{ width: "3.5rem", height: "3.5rem", borderRadius: "1rem" }}>
-				<AppIcon />
+				<AppIcon sx={{ fontSize: "1.75em" }} />
 			</StyledIconButton>
-			<StyledIconButton sx={{ width: "2.625rem", height: "2.625rem", borderRadius: "0.75rem" }}>
-				<AppIcon />
+			<StyledIconButton
+				sx={{ width: "2.625rem", height: "2.625rem", borderRadius: "0.75rem" }}
+				onClick={() => {
+					navigate("/social");
+				}}
+			>
+				<GroupsIcon />
 			</StyledIconButton>
 		</Box>
 	);
