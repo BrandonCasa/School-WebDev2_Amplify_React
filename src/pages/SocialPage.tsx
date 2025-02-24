@@ -26,6 +26,7 @@ function UserCard(props: { displayName: string; rank: string; status: string; pi
 }
 
 function SocialPage() {
+	const [friendsList, setFriendsList] = useState([]);
 	// const { user, signOut } = useAuthenticator();
 
 	useEffect(() => {}, []);
@@ -37,9 +38,9 @@ function SocialPage() {
 			</Paper>
 			<Paper elevation={1} sx={{ flexGrow: 1 }}>
 				<List sx={{ width: "100%", bgcolor: "background.paper" }}>
-					<UserCard displayName="Tyler Ninja Blevins" rank="Grandmaster 2" status="Offline" />
+					<UserCard displayName="Tyler Ninja Blevins" rank="Grandmaster 2" status="Offline" picture="" />
 					<Divider variant="inset" component="li" />
-					<UserCard displayName="Alex Swift" rank="Gold 3" status="Ranked Play (0 : 3)" />
+					<UserCard displayName="Alex Swift" rank="Gold 3" status="Ranked Play (0 : 3)" picture="" />
 				</List>
 			</Paper>
 		</Box>
