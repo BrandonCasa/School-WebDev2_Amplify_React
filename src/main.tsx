@@ -25,7 +25,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 		<Authenticator>
 			<CssBaseline />
 			<BrowserRouter>
-				<Box sx={{ flexGrow: 1, padding: 2, display: "flex", flexDirection: "column", gap: 1 }}>
+				<Box sx={{ flexGrow: 1, height: "100%", padding: 2, display: "flex", flexDirection: "column", gap: 1 }}>
 					<Routes>
 						<Route path="/" element={<App />} />
 						<Route path="/social" element={<SocialPage />} />
