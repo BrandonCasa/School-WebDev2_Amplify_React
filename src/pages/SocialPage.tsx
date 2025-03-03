@@ -19,7 +19,7 @@ function UserCard(props: { displayName: string; rank: string; status: string; pi
 						</Typography>
 						{" — " + (props.status || "Unknown")}
 					</Fragment>
-				}``
+				}
 			/>
 		</ListItem>
 	);
