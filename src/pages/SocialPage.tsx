@@ -7,7 +7,6 @@ import { generateClient } from "aws-amplify/data";
 function UserCard(props: { displayName: string; rank: string; status: string; picture: string }) {
 	return (
 		<ListItem alignItems="flex-start">
-			{/* User avatar */}
 			<ListItemAvatar>
 				<Avatar src={props.picture} alt={props.displayName || "Error"} />
 			</ListItemAvatar>
@@ -20,7 +19,7 @@ function UserCard(props: { displayName: string; rank: string; status: string; pi
 						</Typography>
 						{" — " + (props.status || "Unknown")}
 					</Fragment>
-				}
+				}``
 			/>
 		</ListItem>
 	);
