@@ -33,6 +33,7 @@ function App() {
 				{todos.map((todo) => (
 					<li onClick={() => deleteTodo(todo.id)} key={todo.id}>
 						{todo.content}
+						{todo.owner}
 					</li>
 				))}
 			</ul>
