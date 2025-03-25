@@ -18,7 +18,8 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { generateClient } from "aws-amplify/api";
-import type { Schema } from "../amplify/data/resourceNew.ts";
+import type { Schema } from "../amplify/data/resource.ts";
+import StartMatchPage from "./pages/StartMatchPage.tsx";
 
 Amplify.configure(outputs);
 
@@ -29,7 +30,7 @@ function InnerMain(props: { children: any }) {
 
 	return (
 		<>
-			{<h1>{JSON.stringify(user)}'s todos</h1>}
+			{<h1>{user?.signInDetails?.loginId}'s todos</h1>}
 			{props.children}
 		</>
 	);
@@ -44,6 +45,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 					<InnerMain>
 						<Routes>
 							<Route path="/" element={<App />} />
+							<Route path="/startmatch" element={<StartMatchPage />} />
 							<Route path="/social" element={<SocialPage />} />
 						</Routes>
 					</InnerMain>

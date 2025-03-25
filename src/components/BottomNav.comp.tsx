@@ -16,7 +16,7 @@ function BottomNav() {
 			<StyledIconButton
 				sx={{ width: "2.625rem", height: "2.625rem", borderRadius: "0.75rem" }}
 				onClick={() => {
-					navigate("/");
+					navigate("/startmatch");
 				}}
 			>
 				<AppIcon />
