@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Container, Card, CardContent, Typography, Button } from "@mui/material";
 import { useAuthenticator } from "@aws-amplify/ui-react";
-import { API } from "aws-amplify";
 import type { Schema } from "../../amplify/data/resource.ts";
 // Note: the subscription below assumes your backend still publishes updates via DataStore or AppSync.
 import { generateClient } from "aws-amplify/data";
