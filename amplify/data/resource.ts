@@ -1,5 +1,5 @@
 import { type ClientSchema, a, defineData, defineAuth } from "@aws-amplify/backend";
-import { handler as createInitialGameStateHandler } from "../functions/createInitialGameState";
+import { createInitialGameState } from "../functions/functions";
 
 const schema = a.schema({
 	User: a
@@ -72,7 +72,7 @@ const schema = a.schema({
 		})
 		.returns(a.json())
 		.authorization((allow) => [allow.guest()])
-		.handler(a.handler.function(createInitialGameStateHandler)),
+		.handler(a.handler.function(createInitialGameState)),
 });
 
 export type Schema = ClientSchema<typeof schema>;
