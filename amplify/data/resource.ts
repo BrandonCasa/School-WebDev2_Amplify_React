@@ -1,5 +1,5 @@
-import { type ClientSchema, a, defineData, defineAuth } from "@aws-amplify/backend";
-import { createInitialGameState } from "../functions/functions";
+import { type ClientSchema, a, defineData } from "@aws-amplify/backend";
+import { createInitialGameStateFunc, processGameTick, getMatchReplayByIdFunc } from "../functions/functions";
 
 const schema = a.schema({
 	User: a
@@ -72,7 +72,23 @@ const schema = a.schema({
 		})
 		.returns(a.json())
 		.authorization((allow) => [allow.guest()])
-		.handler(a.handler.function(createInitialGameState)),
+		.handler(a.handler.function(createInitialGameStateFunc)),
+	tickGame: a
+		.mutation()
+		.arguments({
+			matchReplayId: a.id().required(),
+		})
+		.returns(a.ref("MatchReplay"))
+		.authorization((allow) => [allow.authenticated()])
+		.handler(a.handler.function(processGameTick)),
+	getMatchReplayById: a
+		.query()
+		.arguments({
+			matchReplayId: a.id().required(),
+		})
+		.returns(a.ref("MatchReplay"))
+		.authorization((allow) => [allow.authenticated()])
+		.handler(a.handler.function(getMatchReplayByIdFunc)),
 });
 
 export type Schema = ClientSchema<typeof schema>;

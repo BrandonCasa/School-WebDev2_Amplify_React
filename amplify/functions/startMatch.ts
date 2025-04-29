@@ -1,7 +1,7 @@
 import { GameState, MatchConfig, Position, Snake } from "./types";
 import type { Handler } from "aws-lambda";
 
-export const createInitialGameState = (config: MatchConfig): GameState => {
+export const startMatch = (config: MatchConfig): GameState => {
 	const { boardWidth, boardHeight } = config;
 	const board = Array.from({ length: boardHeight }, () => Array(boardWidth).fill(0));
 
@@ -30,7 +30,7 @@ import { APIGatewayProxyEvent } from "aws-lambda";
 
 export const handler: Handler = async (event: APIGatewayProxyEvent) => {
 	const config = JSON.parse(event?.body || "{}") as MatchConfig;
-	const gameState = createInitialGameState(config);
+	const gameState = startMatch(config);
 	return {
 		statusCode: 200,
 		body: JSON.stringify(gameState),
