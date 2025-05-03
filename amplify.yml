@@ -1,4 +1,4 @@
-version: 1
+version: 2
 backend:
   phases:
     build:
@@ -13,7 +13,7 @@ frontend:
   artifacts:
     baseDirectory: dist
     files:
-      - '**/*'
+      - "**/*"
   cache:
     paths:
       - .npm/**/*
